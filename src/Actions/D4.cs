@@ -8,6 +8,7 @@
 
     internal class D4 : PluginDynamicCommand
     {
+
         //private readonly String _imageResourcePath1;
 
         private Random random = new Random();
@@ -30,8 +31,8 @@
         }
 
         // This method is called when Loupedeck needs to show the command on the console or the UI.
-        protected override String GetCommandDisplayName(String actionParameter, PluginImageSize imageSize) =>
-            $"";
+        //protected override String GetCommandDisplayName(String actionParameter, PluginImageSize imageSize) =>
+        //    $"";
 
         protected override BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
         {
