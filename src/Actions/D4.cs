@@ -30,16 +30,10 @@
             this.ActionImageChanged(); // Notify the plugin service that the command display name and/or image has changed.
             PluginLog.Info($"Throw value is {this.hand}"); // Write the current counter value to the log file.
         }
-        protected override BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
-        {
-            using (var bitmapBuilder = new BitmapBuilder(imageSize))
-            {
-                bitmapBuilder.SetBackgroundImage(PluginResources.ReadImage("Base.png"));
-                bitmapBuilder.DrawText($".{Environment.NewLine}D{value}{Environment.NewLine}{this.hand}");
 
-                return bitmapBuilder.ToImage();
-            }
-        }
+        // This method is called when Loupedeck needs to show the command on the console or the UI.
+        protected override String GetCommandDisplayName(String actionParameter, PluginImageSize imageSize) =>
+            $"D{value}{Environment.NewLine}{this.hand}";
 
     }
 }

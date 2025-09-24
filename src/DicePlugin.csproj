@@ -25,11 +25,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Base.png" />
-    <None Remove="Resources\Untitled.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="PluginApi">
       <HintPath>$(PluginApiDir)PluginApi.dll</HintPath>
     </Reference>
@@ -37,13 +32,6 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Base.png" />
-    <EmbeddedResource Include="Resources\D4.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
   <Target Name="CopyPackage" AfterTargets="PostBuildEvent">
