@@ -25,11 +25,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\D4.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\D4.png" />
+    <None Remove="Resources\Base.png" />
+    <None Remove="Resources\Untitled.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +37,13 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Base.png" />
+    <EmbeddedResource Include="Resources\D4.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <Target Name="CopyPackage" AfterTargets="PostBuildEvent">

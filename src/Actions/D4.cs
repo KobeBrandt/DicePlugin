@@ -20,6 +20,7 @@
             : base(displayName: $"D{value}", description: $"Rolls a {value}", groupName: "Dice")
         {
             //this._imageResourcePath1 = PluginResources.FindFile("Images/D4/1.png");
+            base.IsWidget = true;
         }
 
         // This method is called when the user executes the command.
@@ -29,17 +30,12 @@
             this.ActionImageChanged(); // Notify the plugin service that the command display name and/or image has changed.
             PluginLog.Info($"Throw value is {this.hand}"); // Write the current counter value to the log file.
         }
-
-        // This method is called when Loupedeck needs to show the command on the console or the UI.
-        //protected override String GetCommandDisplayName(String actionParameter, PluginImageSize imageSize) =>
-        //    $"";
-
         protected override BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
         {
             using (var bitmapBuilder = new BitmapBuilder(imageSize))
             {
                 bitmapBuilder.SetBackgroundImage(PluginResources.ReadImage("D4.png"));
-                bitmapBuilder.DrawText($"D{value}{Environment.NewLine}{this.hand}");
+                bitmapBuilder.DrawText($".{Environment.NewLine}D{value}{Environment.NewLine}{this.hand}");
 
                 return bitmapBuilder.ToImage();
             }
