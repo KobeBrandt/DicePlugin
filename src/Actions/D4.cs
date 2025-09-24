@@ -34,7 +34,7 @@
         {
             using (var bitmapBuilder = new BitmapBuilder(imageSize))
             {
-                bitmapBuilder.SetBackgroundImage(PluginResources.ReadImage("D4.png"));
+                bitmapBuilder.SetBackgroundImage(PluginResources.ReadImage("Base.png"));
                 bitmapBuilder.DrawText($".{Environment.NewLine}D{value}{Environment.NewLine}{this.hand}");
 
                 return bitmapBuilder.ToImage();
