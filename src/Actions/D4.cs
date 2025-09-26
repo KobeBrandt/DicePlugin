@@ -19,8 +19,6 @@
         public D4()
             : base(displayName: $"D{value}", description: $"Rolls a {value}", groupName: "Dice")
         {
-            //this._imageResourcePath1 = PluginResources.FindFile("Images/D4/1.png");
-            base.IsWidget = true;
         }
 
         // This method is called when the user executes the command.
