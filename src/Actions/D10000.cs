@@ -6,13 +6,13 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    internal class D8 : PluginDynamicCommand
+    internal class D10000 : PluginDynamicCommand
     {
         private Random random = new Random();
         private int hand;
-        private const int value = 8;
+        private const int value = 10000;
 
-        public D8()
+        public D10000()
             : base(displayName: $"D{value}", description: $"Rolls a {value}", groupName: "Dice")
         {
             base.IsWidget = true;
