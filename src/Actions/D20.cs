@@ -1,10 +1,6 @@
 ﻿namespace Loupedeck.DicePlugin.Actions
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     internal class D20 : PluginDynamicCommand
     {
@@ -14,6 +10,10 @@
         private int hand;
         private const int value = 20;
 
+
+        private int lineHeight = 32;
+        private int fontSize = 32;
+
         public D20()
             : base(displayName: $"D{value}", description: $"Rolls a {value}", groupName: "Dice")
         {
@@ -22,21 +22,33 @@
 
         protected override void RunCommand(String actionParameter)
         {
-            this.hand = random.Next(value)+1;
-            this.ActionImageChanged();
+            rollInProgress();
+            this.hand = random.Next(value) + 1;
+            rollDone();
             PluginLog.Info($"Throw value is {this.hand}");
         }
+
+        private void rollInProgress()
+        {
+            this.lineHeight = 16;
+            this.fontSize = 16;
+            this.ActionImageChanged();
+            Thread.Sleep(250);
+        }
+        private void rollDone()
+        {
+            this.lineHeight = 32;
+            this.fontSize = 32;
+            this.ActionImageChanged();
+        }
+
 
         protected override BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
         {
             using (var bitmapBuilder = new BitmapBuilder(imageSize))
             {
-                var lineHeight = 32;
-                var fontSize = 32;
-                bitmapBuilder.DrawText($"D{value}{Environment.NewLine}{this.hand}", fontSize: fontSize, lineHeight: lineHeight);
 
-
-
+                bitmapBuilder.DrawText($"D{value}{Environment.NewLine}{this.hand}", fontSize: this.fontSize, lineHeight: this.lineHeight);
 
                 return bitmapBuilder.ToImage();
             }

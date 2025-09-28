@@ -41,12 +41,8 @@ pluginFolderMac: bin
 
 # List of devices the plugin is optimized for.
 supportedDevices:
-    # LoupedeckCtFamily covers the following devices: Loupedeck CT, Live and Live S,
-    # Razer Stream Controller, and Razer Stream Controller X.
-    - LoupedeckCtFamily
+    - Logitech Creative Console
 
-    # LoupedeckPlusFamily covers Loupedeck+ device. Uncomment the following line to support Loupedeck+.
-    #- LoupedeckPlusFamily
 
 # List of plugin capabilities.
 pluginCapabilities:
@@ -74,7 +70,7 @@ licenseUrl: https://opensource.org/licenses/MIT
 # URL of the support page where the users can send improvement suggestions and report bugs.
 # The URL is shown in Loupedeck Marketplace. The page can be for example a GitHub issues page.
 # NOTE: This setting is recommended when publishing the plugin in Loupedeck Marketplace.
-#supportPageUrl: https://github.com/myusername/myplugin/issues
+#supportPageUrl: https://github.com/KobeBrandt/DicePlugin/issues
 
 # URL of the plugin homepage. The URL is shown in Loupedeck Marketplace.
 #homePageUrl: https://https://github.com/KobeBrandt/DicePlugin
