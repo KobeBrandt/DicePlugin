@@ -30,7 +30,7 @@
             this.lineHeight = 16;
             this.fontSize = 16;
             this.ActionImageChanged();
-            Thread.Sleep(500);
+            Thread.Sleep(250);
         }
         private void rollDone()
         {
