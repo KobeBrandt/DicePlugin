@@ -39,10 +39,13 @@ pluginFolderWin: bin
 # This parameter is required to support Mac.
 pluginFolderMac: bin
 
-# List of devices the plugin is optimized for.
+# List of supported devices.
 supportedDevices:
-    - Logitech Creative Console
+  # LoupedeckCtFamily covers the following devices: Loupedeck CT, Live and Live S, and Razer Stream Controller.
+  - LoupedeckCtFamily
 
+  # LoupedeckPlusFamily covers Loupedeck+ device. Uncomment the following line to support Loupedeck+.
+  - LoupedeckPlusFamily
 
 # List of plugin capabilities.
 pluginCapabilities:
