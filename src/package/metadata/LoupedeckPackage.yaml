@@ -12,7 +12,7 @@ name: Dice
 displayName: Dice
 
 # Short description of the plugin.
-description: DicePlugin is a lightweight plugin for the Logitech Creative Console that allows quick and customizable virtual dice rolling directly from your console, ideal for gaming, streaming, or creative workflows.
+description: Dice Plugin allows quick virtual dice rolling directly from your console, ideal for gaming, streaming, or creative workflows.
 
 # Name of the plugin library file.
 pluginFileName: DicePlugin.dll
