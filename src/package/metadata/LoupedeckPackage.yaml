@@ -18,7 +18,7 @@ description: DicePlugin is a lightweight plugin for the Logitech Creative Consol
 pluginFileName: DicePlugin.dll
 
 # Plugin version.
-version: 1.1
+version: 1.1.1
 
 # Author of the plugin. The author can be a company or an individual developer.
 author: KBrandt.dev
