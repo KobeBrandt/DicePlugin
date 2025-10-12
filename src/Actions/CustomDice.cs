@@ -6,22 +6,22 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    internal abstract class Dxxx : PluginDynamicCommand
+    internal class CustomDice : PluginDynamicCommand
     {
-        private Int32 diceSides;
+        private Int32 diceSides = CustomDiceVar.getDiceSides();
         private Random random = new Random();
         private Int32 currentRoll = 0;
         private Int32 font = 32;
 
-        public Dxxx(Int32 diceSides, String groupName = "Dice")
-    : base(displayName: $"D{diceSides}", description: $"Rolls a {diceSides}", groupName: groupName)
+        public CustomDice()
+    : base(displayName: "Custom dice", description: "A dice with a value you set!", groupName: "Custom")
         {
-            this.diceSides = diceSides;
             base.IsWidget = true;
         }
 
         protected override void RunCommand(String actionParameter)
         {
+            this.diceSides = CustomDiceVar.getDiceSides();
             this.rollInProgress();
             this.currentRoll = this.random.Next(this.diceSides) + 1;
             this.rollDone();
