@@ -25,9 +25,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Actions\c7eca8e9-79e5-40fb-8bb0-18d7ac896987-cover.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="PluginApi">
       <HintPath>$(PluginApiDir)PluginApi.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Actions\c7eca8e9-79e5-40fb-8bb0-18d7ac896987-cover.png" />
   </ItemGroup>
 
   <Target Name="CopyPackage" AfterTargets="PostBuildEvent">

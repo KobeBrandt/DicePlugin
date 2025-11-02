@@ -45,7 +45,6 @@
         {
             using (var bitmapBuilder = new BitmapBuilder(imageSize))
             {
-
                 bitmapBuilder.DrawText($"D{this.diceSides}{Environment.NewLine}{this.currentRoll}", fontSize: this.font, lineHeight: this.font);
 
                 return bitmapBuilder.ToImage();
