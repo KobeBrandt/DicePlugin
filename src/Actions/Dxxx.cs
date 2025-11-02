@@ -8,7 +8,7 @@
 
     internal abstract class Dxxx : PluginDynamicCommand
     {
-        private Int32 diceSides;
+        private Int32 dieSides;
         private Random random = new Random();
         private Int32 currentRoll = 0;
         private Int32 font = 32;
@@ -16,14 +16,14 @@
         public Dxxx(Int32 diceSides, String groupName = "Dice")
     : base(displayName: $"D{diceSides}", description: $"Rolls a {diceSides}", groupName: groupName)
         {
-            this.diceSides = diceSides;
+            this.dieSides = diceSides;
             base.IsWidget = true;
         }
 
         protected override void RunCommand(String actionParameter)
         {
             this.rollInProgress();
-            this.currentRoll = this.random.Next(this.diceSides) + 1;
+            this.currentRoll = this.random.Next(this.dieSides) + 1;
             this.rollDone();
             PluginLog.Info($"Throw diceSides is {this.currentRoll}");
         }
@@ -45,10 +45,17 @@
         {
             using (var bitmapBuilder = new BitmapBuilder(imageSize))
             {
+                if (this.currentRoll != 0)
+                {
+                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}{this.currentRoll}", fontSize: this.font, lineHeight: this.font);
+                }
+                else
+                {
+                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}", fontSize: this.font, lineHeight: this.font);
+                }
 
-                bitmapBuilder.DrawText($"D{this.diceSides}{Environment.NewLine}{this.currentRoll}", fontSize: this.font, lineHeight: this.font);
 
-                return bitmapBuilder.ToImage();
+                    return bitmapBuilder.ToImage();
             }
         }
     }
