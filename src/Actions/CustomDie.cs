@@ -38,7 +38,7 @@ new ActionEditorSlider(name: "dieSides", labelText: "Dice value:", description: 
                 dieSides = Int32.Parse(e.ActionEditorState.GetControlValue("dieSides"));
 
                 // Update display name based on user input
-                e.ActionEditorState.SetDisplayName($"D{this.dieSides}");
+                e.ActionEditorState.SetDisplayName($"D{this.dieSides}{Environment.NewLine}{this.currentRoll}");
             }
         }
 
@@ -56,7 +56,6 @@ new ActionEditorSlider(name: "dieSides", labelText: "Dice value:", description: 
                 return true;
             }
 
-
             return false;
         }
 
@@ -72,16 +71,16 @@ new ActionEditorSlider(name: "dieSides", labelText: "Dice value:", description: 
             this.ActionImageChanged();
         }
 
-        //protected BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
-        //{
-        //    using (var bitmapBuilder = new BitmapBuilder(imageSize))
-        //    {
+        protected BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
+        {
+            using (var bitmapBuilder = new BitmapBuilder(imageSize))
+            {
 
-        //        bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}{this.currentRoll}", fontSize: this.font, lineHeight: this.font);
+                bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}{this.currentRoll}", fontSize: this.font, lineHeight: this.font);
 
-        //        return bitmapBuilder.ToImage();
-        //    }
-        //}
+                return bitmapBuilder.ToImage();
+            }
+        }
     }
 
 }
