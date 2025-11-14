@@ -23,9 +23,9 @@
 
             // Add controls for user configuration
             this.ActionEditor.AddControlEx(
-new ActionEditorSlider(name: "dieSides", labelText: "Dice value:", description: "Set the dice value")
-.SetValues(minimumValue: 1, maximumValue: 1000, defaultValue: 20, step: 1)
-.SetFormatString("{0}"));
+            new ActionEditorSlider(name: "dieSides", labelText: "Dice value:", description: "Set the dice value")
+            .SetValues(minimumValue: 1, maximumValue: 1000, defaultValue: 20, step: 1)
+            .SetFormatString("{0}"));
 
 
             this.ActionEditor.ControlValueChanged += this.OnControlValueChanged;
