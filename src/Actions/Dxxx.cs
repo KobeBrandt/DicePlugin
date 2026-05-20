@@ -11,9 +11,9 @@
         private Int32 dieSides;
         private Random random = new Random();
         private Int32 currentRoll = 0;
-        private Int32 font = 32;
+        private Int32 fontSizeChanger = 3;
 
-        public Dxxx(Int32 diceSides, String groupName = "Dice")
+        public Dxxx(Int32 diceSides, String groupName = "pre made")
     : base(displayName: $"D{diceSides}", description: $"Rolls a {diceSides}", groupName: groupName)
         {
             this.dieSides = diceSides;
@@ -30,28 +30,29 @@
 
         private void rollInProgress()
         {
-            this.font = 16;
+            this.fontSizeChanger = 5;
             this.ActionImageChanged();
             Thread.Sleep(250);
         }
         private void rollDone()
         {
-            this.font = 32;
+            this.fontSizeChanger = 3;
             this.ActionImageChanged();
         }
 
 
         protected override BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
         {
+            int fontSize = imageSize.GetSize() / this.fontSizeChanger;
             using (var bitmapBuilder = new BitmapBuilder(imageSize))
             {
                 if (this.currentRoll != 0)
                 {
-                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}{this.currentRoll}", fontSize: this.font, lineHeight: this.font);
+                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}{this.currentRoll}", fontSize: fontSize, lineHeight: fontSize);
                 }
                 else
                 {
-                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}", fontSize: this.font, lineHeight: this.font);
+                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}", fontSize: fontSize, lineHeight: fontSize);
                 }
 
 
