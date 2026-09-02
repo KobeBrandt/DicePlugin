@@ -54,9 +54,7 @@
                 {
                     bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}", fontSize: fontSize, lineHeight: fontSize);
                 }
-
-
-                    return bitmapBuilder.ToImage();
+                return bitmapBuilder.ToImage();
             }
         }
     }
