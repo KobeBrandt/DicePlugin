@@ -13,7 +13,7 @@
         private Int32 currentRoll = 0;
         private Int32 fontSizeChanger = 3;
 
-        public Dxxx(Int32 diceSides, String groupName = "pre made")
+        public Dxxx(Int32 diceSides, String groupName = "")
     : base(displayName: $"D{diceSides}", description: $"Rolls a {diceSides}", groupName: groupName)
         {
             this.dieSides = diceSides;
