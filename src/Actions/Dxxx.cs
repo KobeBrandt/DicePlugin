@@ -8,46 +8,52 @@
 
     internal abstract class Dxxx : PluginDynamicCommand
     {
-        private int diceSides;
+        private Int32 dieSides;
         private Random random = new Random();
-        private int currentRoll = 0;
-        private int font = 32;
+        private Int32 currentRoll = 0;
+        private Int32 fontSizeChanger = 3;
 
-        public Dxxx(int diceSides)
-    : base(displayName: $"D{diceSides}", description: $"Rolls a {diceSides}", groupName: "Dice")
+        public Dxxx(Int32 diceSides, String groupName = "pre made")
+    : base(displayName: $"D{diceSides}", description: $"Rolls a {diceSides}", groupName: groupName)
         {
-            this.diceSides = diceSides;
+            this.dieSides = diceSides;
             base.IsWidget = true;
         }
 
         protected override void RunCommand(String actionParameter)
         {
-            rollInProgress();
-            this.currentRoll = random.Next(diceSides) + 1;
-            rollDone();
+            this.rollInProgress();
+            this.currentRoll = this.random.Next(this.dieSides) + 1;
+            this.rollDone();
             PluginLog.Info($"Throw diceSides is {this.currentRoll}");
         }
 
         private void rollInProgress()
         {
-            this.font = 16;
+            this.fontSizeChanger = 5;
             this.ActionImageChanged();
             Thread.Sleep(250);
         }
         private void rollDone()
         {
-            this.font = 32;
+            this.fontSizeChanger = 3;
             this.ActionImageChanged();
         }
 
 
         protected override BitmapImage GetCommandImage(String actionParameter, PluginImageSize imageSize)
         {
+            int fontSize = imageSize.GetSize() / this.fontSizeChanger;
             using (var bitmapBuilder = new BitmapBuilder(imageSize))
             {
-
-                bitmapBuilder.DrawText($"D{diceSides}{Environment.NewLine}{this.currentRoll}", fontSize: this.font, lineHeight: this.font);
-
+                if (this.currentRoll != 0)
+                {
+                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}{this.currentRoll}", fontSize: fontSize, lineHeight: fontSize);
+                }
+                else
+                {
+                    bitmapBuilder.DrawText($"D{this.dieSides}{Environment.NewLine}", fontSize: fontSize, lineHeight: fontSize);
+                }
                 return bitmapBuilder.ToImage();
             }
         }
