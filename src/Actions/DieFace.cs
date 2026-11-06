@@ -43,7 +43,7 @@ namespace Loupedeck.DicePlugin.Actions
 
         public static void Draw(BitmapBuilder builder, Int32 sides, FaceState state, Int32 value, Single rotation)
         {
-            var mood = state != FaceState.Result || sides <= 2 ? Mood.Normal : value == sides ? Mood.Gold : value == 1 ? Mood.Slate : Mood.Normal;
+            var mood = state != FaceState.Result ? Mood.Normal : value == sides ? Mood.Gold : value == 1 ? Mood.Slate : Mood.Normal;
             DrawArt(builder, sides, state, mood, rotation);
             if (state == FaceState.Rolling)
             {
